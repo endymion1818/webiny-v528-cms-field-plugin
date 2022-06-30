@@ -37,6 +37,7 @@ export const handler = createHandler({
         }),
         securityPlugins({ documentClient }),
         i18nPlugins(),
+        secretTextFieldPlugin,
         i18nDynamoDbStorageOperations(),
         createContentHeadlessCmsContext({
             storageOperations: createHeadlessCmsStorageOperations({
@@ -45,8 +46,7 @@ export const handler = createHandler({
             })
         }),
         createContentHeadlessCmsGraphQL({ debug }),
-        scaffoldsPlugins(),
-        secretTextFieldPlugin
+        scaffoldsPlugins()
     ],
     http: { debug }
 });
