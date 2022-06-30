@@ -17,6 +17,7 @@ import logsPlugins from "@webiny/handler-logs";
 
 // Imports plugins created via scaffolding utilities.
 import scaffoldsPlugins from "./plugins/scaffolds";
+import secretTextFieldPlugin from "./plugins/secretTextFieldPlugin"
 
 const debug = process.env.DEBUG === "true";
 
@@ -44,7 +45,8 @@ export const handler = createHandler({
             })
         }),
         createContentHeadlessCmsGraphQL({ debug }),
-        scaffoldsPlugins()
+        scaffoldsPlugins(),
+        secretTextFieldPlugin
     ],
     http: { debug }
 });
